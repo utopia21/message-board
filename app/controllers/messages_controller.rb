@@ -32,7 +32,7 @@ class MessagesController < ApplicationController
       flash[:success] = "Messageは正常に更新されました"
       redirect_to @message
     else
-      flasj.now[:danger] = "Messageは更新されませんでした"
+      flash.now[:danger] = "Messageは更新されませんでした"
       render :edit
     end
   end
@@ -52,6 +52,6 @@ class MessagesController < ApplicationController
   
   # Strong Parameter
   def message_params
-    params.require(:message).permit(:content)
+    params.require(:message).permit(:content, :title)
   end
 end
